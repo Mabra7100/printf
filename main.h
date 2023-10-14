@@ -8,6 +8,14 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
+int printf_char(va_list arg)
+int printf_string(va_list arg)
+int _strlen(char *str)
+int print_28(void)
+int printf_char(va_list arg)
+int print_int(va_list args);
+int print_dec(va_list args)
+
 
 
 
