@@ -5,7 +5,7 @@
  *
  *@format: Arguments
  *
- *return: return chars
+ *Return: return chars
  */
 
 int _printf(const char *format, ...)
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
             		char temp = (char)va_arg(ap, int);
             		chars += write(1, &temp, 1);
 				}
-    break;
+                break;
 
             case 's':
                 {
