@@ -5,49 +5,57 @@
  *
  *@format: Arguments
  *
- *return: return chars
+ *Return: return chars
  */
 
 int _printf(const char *format, ...)
 {
-	int chars = 0;
-	va_list ap;
-	va_start(ap, format);
+int chars = 0;
+va_list ap;
+va_start(ap, format);
 
+<<<<<<< HEAD
     while (*format != '\0')
     {
         if (*format != '%')
         {
             format++;
+=======
+while (*format != '\0')
+{
+if (*format == '%')
+{
+format++;
+>>>>>>> 8be58d31a8100bcd66fc8c2c76d377ce5a9bc99a
 
-            switch (*format)
-            {
-            case 'c':
-            	{
-            		char temp = (char)va_arg(ap, int);
-            		chars += write(1, &temp, 1);
-				}
-    break;
+switch (*format)
+{
+case 'c':
+{
+char temp = (char)va_arg(ap, int);
+chars += write(1, &temp, 1);
+}
+break;
 
-            case 's':
-                {
-                    char *str = va_arg(ap, char*);
-                    chars += write(1, str, strlen(str));
-                }
-                break;
-            default:
-                chars += write(1, format, 1);
-            }
-        }
-        else
-        {
-            chars += write(1, format, 1);
-        }
+case 's':
+{
+char *str = va_arg(ap, char*);
+chars += write(1, str, strlen(str));
+}
+break;
+default:
+chars += write(1, format, 1);
+}
+}
+else
+{
+chars += write(1, format, 1);
+}
 
-        format++;
-    }
+format++;
+}
 
-    va_end(ap);
+va_end(ap);
 
-    return chars;
+return (chars);
 }
