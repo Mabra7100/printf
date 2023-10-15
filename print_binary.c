@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
 /**
 * print_bin - converts num to binary
 * @va: decimal num

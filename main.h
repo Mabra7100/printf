@@ -16,7 +16,7 @@ int printf_char(va_list arg);
 int print_int(va_list args);
 int print_dec(va_list args);
 int print_bin(va_list va);
-
+int print_unsig(va_list d)
 
 
 #endif
