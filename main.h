@@ -8,7 +8,7 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
-int printf_char(va_list arg);
+/**int printf_char(va_list arg);
 int printf_string(va_list arg);
 int _strlen(char *str);
 int print_28(void);
@@ -17,6 +17,6 @@ int print_int(va_list args);
 int print_dec(va_list args);
 int print_bin(va_list va);
 int print_unsig(va_list d)
-
+*/
 
 #endif
