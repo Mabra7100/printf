@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * _printf - custom printf-like function
+ * @format: format string
+ * Return: number of characters printed (excluding null byte)
+ */
 int _printf(const char *format, ...)
 {
     int chars = 0;
