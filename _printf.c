@@ -128,4 +128,3 @@ int print_number(int n)
 
     return count;
 }
-
