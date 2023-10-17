@@ -75,11 +75,11 @@ case '%':
 write(1, "%", 1);
 count++;
 break;
-default:
+/**default:
 write(1, "%", 1);
 write(1, &specifier, 1);
 count += 2;
-break;
+break;*/
 }
 
 return (count);
