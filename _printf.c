@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <stddef.h>
 #include <unistd.h>
 #include "main.h"
 
@@ -49,6 +48,7 @@ int handle_format(char specifier, va_list args)
     char c;
     char *str;
     int count = 0;
+    int num;
 
     switch (specifier)
     {
@@ -68,6 +68,11 @@ int handle_format(char specifier, va_list args)
             count++;
         }
         break;
+    case 'd':
+    case 'i':
+        num = va_arg(args, int);
+        count += print_number(num);
+        break;
     case '%':
         write(1, "%", 1);
         count++;
@@ -77,6 +82,48 @@ int handle_format(char specifier, va_list args)
         write(1, &specifier, 1);
         count += 2;
         break;
+    }
+
+    return count;
+}
+
+/**
+ * print_number - Print an integer
+ * @n: Integer to print
+ *
+ * Return: Number of characters printed
+ */
+int print_number(int n)
+{
+    char buffer[20];
+    int count = 0;
+    int i = 0;
+
+    if (n < 0)
+    {
+        write(1, "-", 1);
+        count++;
+        n = -n;
+    }
+
+    if (n == 0)
+    {
+        write(1, "0", 1);
+        count++;
+    }
+    else
+    {
+        while (n != 0)
+        {
+            buffer[i++] = '0' + n % 10;
+            n /= 10;
+        }
+
+        while (--i >= 0)
+        {
+            write(1, &buffer[i], 1);
+            count++;
+        }
     }
 
     return count;
