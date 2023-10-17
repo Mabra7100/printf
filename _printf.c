@@ -75,7 +75,7 @@ case '%':
 write(1, "%", 1);
 count++;
 break;
-default:
+/**default:
 write(1, "%", 1);
 write(1, &specifier, 1);
 count += 2;
@@ -91,7 +91,7 @@ return (count);
  *
  * Return: Number of characters printed
  */
-int print_number(int n)
+/**int print_number(int n)
 {
 char buffer[20];
 int count = 0;
@@ -125,4 +125,4 @@ count++;
 }
 
 return (count);
-}
+}*/
