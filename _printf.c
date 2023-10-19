@@ -7,16 +7,6 @@
  *
  * Return: Number of characters printed (excluding null byte)
  */
-
-#include "main.h"
-
-/**
- * _printf - Custom printf function
- * @format: Format string
- * @...: Variable number of arguments
- *
- * Return: Number of characters printed (excluding null byte)
- */
 int _printf(const char *format, ...)
 {
 va_list args;
@@ -27,6 +17,7 @@ if (format == NULL)
 {
 return (-1);
 }
+
 
 va_start(args, format);
 
@@ -44,17 +35,16 @@ else
 {
 count += handle_format(*ptr, args);
 }
-}
 else
 {
 write(1, ptr, 1);
-count++;
-}
 }
 
 va_end(args);
 
 return (count);
+}
+}
 }
 
 /**
@@ -146,6 +136,5 @@ write(1, &buffer[i], 1);
 count++;
 }
 }
-
 return (count);
 }
