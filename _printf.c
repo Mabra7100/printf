@@ -128,4 +128,5 @@ write(1, &buffer[i], 1);
 count++;
 }
 }
+return (count);
 }
