@@ -15,9 +15,8 @@ const char *ptr;
 
 if (format == NULL)
 {
-return (-1);
+return (-1)
 }
-
 
 va_start(args, format);
 
@@ -26,25 +25,18 @@ for (ptr = format; *ptr != '\0'; ptr++)
 if (*ptr == '%' && *(ptr + 1) != '\0')
 {
 ptr++;
-if (*ptr == '%')
-{
-write(1, "%", 1);
-count++;
-}
-else
-{
 count += handle_format(*ptr, args);
 }
 else
 {
 write(1, ptr, 1);
+count++;
+}
 }
 
 va_end(args);
 
 return (count);
-}
-}
 }
 
 /**
@@ -135,6 +127,4 @@ while (--i >= 0)
 write(1, &buffer[i], 1);
 count++;
 }
-}
-return (count);
 }
