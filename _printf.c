@@ -1,5 +1,5 @@
 #include "main.h"
-void _putnbr(int nb, int *counter)
+void _putnbr(long nb, int *counter)
 {
     if (nb == -2147483648)
         _putstr("-2147483648", counter);
@@ -43,6 +43,14 @@ void checkformat(char c, va_list args, int *counter)
         _putchar(va_arg(args, int), counter);
     else if (c == 'd' || c == 'i')
         _putnbr(va_arg(args, int), counter);
+     else if (c == 'u')
+		_putnbr(va_arg(args, unsigned int), counter);
+    else if (c == 'p')
+		_putptr(va_arg(args, unsigned long), "0123456789abcdef", counter);
+    else if (c == 'x')
+		_puthex(va_arg(args, unsigned int), "0123456789abcdef", counter);
+	else if (c == 'X')
+		_puthex(va_arg(args, unsigned int), "0123456789ABCDEF", counter);
     else 
         _putchar(c, counter);
 }
