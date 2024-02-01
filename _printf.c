@@ -20,9 +20,12 @@ void _putnbr(int nb, int *counter)
 
 void _putstr(char *str, int *counter)
 {
+    printf("gg");
     int i;
 
     i = -1;
+    if (!str)
+        str = "(null)";
     while(str[++i])
         _putchar(str[i], counter);
 }
@@ -51,13 +54,21 @@ int _printf(const char *format, ...)
     i = 0;
     counter = 0;
     va_start(args, format);
+    if ((format[0] == '%' && format[1] == '\0'))
+		return (-1);
     while (format[i])
     {
         if (format[i] == '%')
-            checkformat(format[++i], args, &counter);
+        {
+            if (format[++i])
+                checkformat(format[i], args, &counter);
+            else
+                break;
+        }
         else
             _putchar(format[i], &counter);
         i++;
     }
+    va_end(args);
     return (counter);
 }
