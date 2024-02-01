@@ -37,12 +37,14 @@ void checkformat(char c, va_list args, int *counter)
 {
     if (c == '%')
         _putchar('%', counter);
-    if (c == 's')
+    else if (c == 's')
         _putstr(va_arg(args, char *),counter);
-    if (c == 'c')
+    else if (c == 'c')
         _putchar(va_arg(args, int), counter);
-    if (c == 'd' || c == 'i')
+    else if (c == 'd' || c == 'i')
         _putnbr(va_arg(args, int), counter);
+    else 
+        _putchar(c, counter);
 }
 int _printf(const char *format, ...)
 {
@@ -53,7 +55,7 @@ int _printf(const char *format, ...)
     i = 0;
     counter = 0;
     va_start(args, format);
-    if (format == NULL)
+    if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
     while (format[i])
     {

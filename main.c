@@ -41,7 +41,7 @@ int main(void)
     // _printf("Unknown:[%r]\n");
     // printf("Unknown:[%r]\n");
 
-    printf("%d",_printf("%"));
-    printf("\n%d",printf("%"));
+   _printf("%!\n");
+   printf("%!\n");
     return (0);
 }
