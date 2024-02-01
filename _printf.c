@@ -20,7 +20,6 @@ void _putnbr(int nb, int *counter)
 
 void _putstr(char *str, int *counter)
 {
-    printf("gg");
     int i;
 
     i = -1;
